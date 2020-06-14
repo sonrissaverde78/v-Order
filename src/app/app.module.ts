@@ -1,32 +1,29 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
+import { ServicesModule } from './services/services.module';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { PagesModule } from './pages/pages.module';
+
+
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { AboutComponent } from './pages/about/about.component';
-import { CompanybarheaderComponent } from './shared/companybarheader/companybarheader.component';
-import { BreadcrumsComponent } from './shared/breadcrums/breadcrums.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { APP_ROUTES } from './app-routes';
-import { CustomerHeadernavbarComponent } from './shared/customer-headernavbar/customer-headernavbar.component';
+
+import { APP_ROUTES } from './app.routes';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    NopagefoundComponent,
-    DashboardComponent,
-    AboutComponent,
-    CompanybarheaderComponent,
-    BreadcrumsComponent,
-    SidebarComponent,
-    CustomerHeadernavbarComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    APP_ROUTES
+    APP_ROUTES,
+    PagesModule,
+    ServicesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,39 +7,84 @@
         <!-- Logo -->
         <!-- ============================================================== -->
         <div class="navbar-header">
-            <!-- <a class="navbar-brand" href="index.html">  -->
+            <!-- <a class="navbar-brand" href="index.html">  *ngFor="let submenu of menu.submenu" -->
             <a class="navbar-brand dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-
                 <div class="dropdown-menu animated bounceInDown">
+
+                    <a *ngFor="let menu of menuMain" class="dropdown-item mb-0" href="#">
+                        <div class="row">
+                            <div class="col-3">
+                                <svg class="flaticon" style="margin-top: 10px;">
+                                    <use [attr.xlink:href]="menu.icono"></use>
+                                 </svg>
+                            </div>
+                            <div class="col-9">
+                                <p class="pl-1 font-bold">{{ menu.title }}</p>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+                </div>
+                <!--
+
+
+                <div *ngFor="let restaurant of prodMain" class="dropdown-menu animated bounceInDown">
+                    <div *ngFor="let menuMain of restaurant" class="row">
+                        <div *ngFor="let opcion of menuMain" class="row">
+                            <div class="col-3">
+                                <a class="dropdown-item" href="#">
+                                    <svg class="flaticon">
+                                    <use [attr.xlink:href]="opcion.icono"></use>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="col-9">
+                                <p class="pl-3">{{ opcion.title }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <a class="dropdown-item" href="#">
                         <i class="flag-icon flag-icon-in"></i> Starters
                     </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="flag-icon flag-icon-fr"></i> First Courses
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="flag-icon flag-icon-cn"></i> Second Courses
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="flag-icon flag-icon-de"></i> Deserts
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="flag-icon flag-icon-de"></i> Drinks
-                    </a>
-                </div>
+
+
+
+                    </div>
+-->
+
                 <!-- Logo icon -->
                 <b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
                             <img src="../assets/images/logo-icon.png" alt="" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="v-Order" class="light-logo" />
+                            <img src="../assets/images/logo-light-icon.png" alt="" class="light-logo" />
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
                 <span>
                          <!-- dark Logo text -->
-                         <img src="../assets/images/logo-text.png" alt="v-Order" class="dark-logo" />
+                         <img src="../assets/images/logo-text.png-" alt="{{ shopName }}" class="dark-logo" />
                          <!-- Light Logo text -->    
                          <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
                 </span>
