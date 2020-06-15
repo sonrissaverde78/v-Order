@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerHeadernavbarService } from '../../../services/shared/customer-headernavbar.service';
 
 @Component({
   selector: 'app-products',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  productList  = [];
+  constructor(public mainMenuService: CustomerHeadernavbarService) {
+    this.productList  = this.mainMenuService.getProductsMenu ('Desserts');
+   }
+
+  
 
   ngOnInit(): void {
+
   }
 
 }

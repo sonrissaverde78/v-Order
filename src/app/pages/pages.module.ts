@@ -9,6 +9,8 @@ import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.router';
 import { ProductsComponent } from './products/products/products.component';
 import { ProductCardComponent } from '../components/product-card/product-card/product-card.component';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ProductCardComponent } from '../components/product-card/product-card/pr
   ],
   imports: [
     SharedModule,
-    PAGES_ROUTES
+    PAGES_ROUTES,
+    CommonModule,
+    RouterModule
   ],
 })
 export class PagesModule { }

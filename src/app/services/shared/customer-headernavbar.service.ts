@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CustomerHeadernavbarService {
 
-  public prodMain: any = '{\
+    public prodMain: any = '{\
       "R5YbndlwaYYkbpeAHbqdLi0qJaS2":\
       {\
         "desserts":\
@@ -170,25 +170,102 @@ export class CustomerHeadernavbarService {
           }\
       }\
   }';
-  shopName: string = 'Restauranti I';
-  /*
-  productsMainMenu: any = [
-    {
-      titulo: 'Restaurant Test',
-      icono: 'mdi mdi-gauge',
-      submenu: [
-        { titulo: 'Starters', url: '/starters'},
-        { titulo: 'First Courses', url: '/firsts'},
-        { titulo: 'SecondCourses', url: '/seconds'},
-        { titulo: 'Desserts', url: '/desserts'},
-        { titulo: 'Drinks', url: 'drinks'}
-      ]
+    shopName: string = 'Restauranti I';
+    shopMenuMain = [];
+    /*
+    productsMainMenu: any = [
+      {
+        titulo: 'Restaurant Test',
+        icono: 'mdi mdi-gauge',
+        submenu: [
+          { titulo: 'Starters', url: '/starters'},
+          { titulo: 'First Courses', url: '/firsts'},
+          { titulo: 'SecondCourses', url: '/seconds'},
+          { titulo: 'Desserts', url: '/desserts'},
+          { titulo: 'Drinks', url: 'drinks'}
+        ]
+      }
+    ];
+    */
+
+    constructor() {
+        // this.buildProductsMenu(this.productos);
+
     }
-  ];
-  */
 
-  constructor() {
-    // this.buildProductsMenu(this.productos);
+    getJSONTotalKeys(obj: any): number {
+        return Object.getOwnPropertyNames(obj).length;
+    }
 
-  }
+    getJSONKeyString(obj: any, index: number): string {
+        const totalFields: number = this.getJSONTotalKeys(obj);
+        if (index < totalFields) {
+            const pp = Object.getOwnPropertyNames(obj)[index];
+            return pp;
+        } else {
+            return null;
+        }
+    }
+
+    buildMainMenu(): any {
+        const jsonCommerceIDlevel = JSON.parse(this.prodMain);
+        const totalShops = this.getJSONTotalKeys(jsonCommerceIDlevel);
+        const strCommerceId = this.getJSONKeyString(jsonCommerceIDlevel, 0);
+
+        const jsonMainMenuShop = jsonCommerceIDlevel[strCommerceId];
+        const totalOptionsMainMenuShop = this.getJSONTotalKeys(jsonMainMenuShop);
+
+
+        for (let index0 = 0; index0 < totalOptionsMainMenuShop; index0++) {
+            const strMainMenuShopOptionId = this.getJSONKeyString(jsonMainMenuShop, index0);
+            const jsonOptionIdProducts = jsonMainMenuShop[strMainMenuShopOptionId];
+
+            const totalProducts = this.getJSONTotalKeys(jsonOptionIdProducts);
+            // temporal array to insert the key and value for icon and title for the option.
+            const arrayLabelAndIconMenu = [];
+            const arrayAux = [];
+            for (let index1 = 0; index1 < totalProducts; index1++) {
+                const strKeyId = this.getJSONKeyString(jsonOptionIdProducts, index1);
+                const strKeyIdValue = jsonOptionIdProducts[strKeyId];
+                if (strKeyId === 'title'){
+                      arrayLabelAndIconMenu[strKeyId] = strKeyIdValue;
+                } else if (strKeyId === 'icono'){
+                        arrayLabelAndIconMenu[strKeyId] = strKeyIdValue;
+                } else {
+                    const totalKeysForProduct = this.getJSONTotalKeys(jsonOptionIdProducts[strKeyId]);
+                    const jsonProductDefinition = jsonOptionIdProducts[strKeyId];
+                    const arrayProductDefinition = [];
+                    for (let i3 = 0; i3 < totalKeysForProduct; i3++){
+                        const strKeyId3 = this.getJSONKeyString(jsonProductDefinition, i3);
+                        // console.log ('strKeyId3 ' + strKeyId3 );
+                        const strKeyIdValue3 = jsonProductDefinition[strKeyId3];
+                        // console.log ('strKeyIdValue3 ' + strKeyIdValue3 );
+                        arrayProductDefinition[strKeyId3] = strKeyIdValue3;
+
+                    }
+                    console.log (arrayProductDefinition);
+                    console.log ('*******************************');
+                    arrayAux.push(arrayProductDefinition);
+                    arrayLabelAndIconMenu['productsList'] = arrayAux;
+                   }
+            }
+
+            this.shopMenuMain.push(arrayLabelAndIconMenu);
+        }
+        console.log ('shopMenuMain');
+        //console.log (this.shopMenuMain);
+        this.getProductsMenu('Desserts');
+        return this.shopMenuMain;
+    }
+    getProductsMenu( strOption: string ): [] {
+        // tslint:disable-next-line: prefer-for-of
+        for (let i = 0; i < this.shopMenuMain.length; i++){
+            if (strOption === this.shopMenuMain[i].title){
+                console.log (this.shopMenuMain[i]['productsList']);
+                return this.shopMenuMain[i]['productsList'];
+            }
+        }
+
+    }
+
 }
