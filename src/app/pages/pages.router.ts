@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
+import { ProductsComponent } from './products/products/products.component';
 
 
 const pagesRoutes: Routes = [
@@ -14,6 +15,7 @@ const pagesRoutes: Routes = [
         children: [
             { path: 'dashboard', component: DashboardComponent },
             { path: 'about', component: AboutComponent },
+            { path: 'prods', component: ProductsComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
         ]
     }

@@ -7,17 +7,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PAGES_ROUTES } from './pages.router';
-
+import { ProductsComponent } from './products/products/products.component';
+import { ProductCardComponent } from '../components/product-card/product-card/product-card.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     AboutComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductsComponent,
+    ProductCardComponent
   ],
   exports: [
     AboutComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductsComponent
   ],
   imports: [
     SharedModule,

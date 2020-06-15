@@ -14,10 +14,11 @@ import { LoginComponent } from './login/login.component';
 import { APP_ROUTES } from './app.routes';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
