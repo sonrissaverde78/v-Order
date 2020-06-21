@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class CustomerHeadernavbarService {
-
+    currentProductList: string = 'initPlease';
     public prodMain: any = '{\
       "R5YbndlwaYYkbpeAHbqdLi0qJaS2":\
       {\
@@ -15,8 +15,8 @@ export class CustomerHeadernavbarService {
               "icono": "#cake",\
               "-M3fVZPWoSq7va0BwNJb":\
               {\
-                  "description": "Description course 1",\
-                  "image": "",\
+                  "description": "Una hamburguesa es un tipo de sándwich hecho a base de carne molida aglutinada en forma de filete cocinado a la parrilla o a la plancha, aunque también puede freírse u hornearse. Fuera del ámbito de habla hispana, es más común encontrar la denominación inglesa burger, acortamiento de hamburger.",\
+                  "image": "https://firebasestorage.googleapis.com/v0/b/virtual-order-es.appspot.com/o/hamburger.jpg?alt=media&token=b3c98192-62ff-4554-aca9-fa2e0736d5a3",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Dessert 1",\
                   "price": "10.00"\
@@ -24,7 +24,7 @@ export class CustomerHeadernavbarService {
               "-M3fV_2Fo-CPok-KNpWw": \
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://firebasestorage.googleapis.com/v0/b/virtual-order-es.appspot.com/o/hamburger.jpg?alt=media&token=b3c98192-62ff-4554-aca9-fa2e0736d5a3",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Dessert 2",\
                   "price": "10.00"\
@@ -32,10 +32,34 @@ export class CustomerHeadernavbarService {
               "-M3fVa9x7EjuIzR-IT59":\
               { \
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name":\
                   "Dessert 3",\
+                  "price": "10.00"\
+              },\
+              "-M3fV_2Fo-CPok-KNpWL": \
+              {\
+                  "description": "Description course 1",\
+                  "image": "https://firebasestorage.googleapis.com/v0/b/virtual-order-es.appspot.com/o/hamburger.jpg?alt=media&token=b3c98192-62ff-4554-aca9-fa2e0736d5a3",\
+                  "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "name": "Dessert 2",\
+                  "price": "10.00"\
+              },\
+              "-M3fV_2Fo-CPok-KNppp": \
+              {\
+                  "description": "Description course 1",\
+                  "image": "https://firebasestorage.googleapis.com/v0/b/virtual-order-es.appspot.com/o/hamburger.jpg?alt=media&token=b3c98192-62ff-4554-aca9-fa2e0736d5a3",\
+                  "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "name": "Dessert 2",\
+                  "price": "10.00"\
+              },\
+              "-M3fV_2Fo-CPok-KNpp": \
+              {\
+                  "description": "Description course 1",\
+                  "image": "https://firebasestorage.googleapis.com/v0/b/virtual-order-es.appspot.com/o/hamburger.jpg?alt=media&token=b3c98192-62ff-4554-aca9-fa2e0736d5a3",\
+                  "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "name": "Dessert 2",\
                   "price": "10.00"\
               }\
           },\
@@ -46,7 +70,7 @@ export class CustomerHeadernavbarService {
               "-M3fVVHXDdI49JdUvPDr":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Drink 1",\
                   "price": "10.00"\
@@ -55,7 +79,7 @@ export class CustomerHeadernavbarService {
               {\
                   "description":\
                   "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Drink 2",\
                   "price": "10.00"\
@@ -63,7 +87,7 @@ export class CustomerHeadernavbarService {
               "-M3fVXtArk39ZSDn3pbo":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Drink 3",\
                   "price": "10.00"\
@@ -76,14 +100,15 @@ export class CustomerHeadernavbarService {
             "-M3fRzrM9v57OT86wjAg":\
               {\
                   "description": "Description course 1",\
-                  "image": "", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
+                  "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "course 11",\
                   "price": "10.00"\
               },\
               "-M3fTOQSQFcn3h_UhmzO":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "course 1",\
                   "price": "10.00"\
@@ -91,7 +116,7 @@ export class CustomerHeadernavbarService {
               "-M3fTPgrhe_mKgZE6hQG":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "course 2",\
                   "price": "10.00"\
@@ -99,14 +124,14 @@ export class CustomerHeadernavbarService {
               "-M3fTQTY4ZwIeSXsFH7s":\
               {\
                   "description": "Description course 1",\
-                  "image": "", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "course 3",\
                   "price": "10.00"\
               },\
               "-M3fTRGS7rq-7dSJwlWQ":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "course 4",\
                   "price": "10.00"\
@@ -119,7 +144,7 @@ export class CustomerHeadernavbarService {
             "-M3fVPu36ebUfKaaj1Px":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Second 1",\
                   "price": "10.00"\
@@ -127,7 +152,7 @@ export class CustomerHeadernavbarService {
               "-M3fVQyhaBTN4ANDqSuu":\
               {\
                   "description": "Description course 1",\
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Second 2",\
                   "price": "10.00"\
@@ -135,7 +160,7 @@ export class CustomerHeadernavbarService {
               "-M3fVSON4kI4HXYVm83u":\
               {\
                   "description": "Description course 1",\
-                  "image": "", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Second 3",\
                   "price": "10.00"\
                   }\
@@ -147,7 +172,7 @@ export class CustomerHeadernavbarService {
             "-M3fVImUit2tYsKnqq3d":\
               {\
                   "description": "Description course 1", \
-                  "image": "", \
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg", \
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Starter 0",\
                   "price": "10.00"\
@@ -155,7 +180,7 @@ export class CustomerHeadernavbarService {
               "-M3fVJdx0Yu9z91jCYVb":\
               {\
                   "description": "Description course 1", \
-                  "image": "",\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg",\
                   "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Starter 2",\
                   "price": "10.00"\
@@ -163,7 +188,7 @@ export class CustomerHeadernavbarService {
               "-M3fVN7jNbSiosY8j0ko":\
               {\
                   "description": "Description course 1", \
-                  "image": "", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
+                  "image": "https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg", "ingredients": [ "Ingrediente 1", "Ingrediente 2" ],\
                   "name": "Starter 3",\
                   "price": "10.00"\
               }\
@@ -243,8 +268,8 @@ export class CustomerHeadernavbarService {
                         arrayProductDefinition[strKeyId3] = strKeyIdValue3;
 
                     }
-                    console.log (arrayProductDefinition);
-                    console.log ('*******************************');
+                    // console.log (arrayProductDefinition);
+                    // console.log ('*******************************');
                     arrayAux.push(arrayProductDefinition);
                     arrayLabelAndIconMenu['productsList'] = arrayAux;
                    }
@@ -252,20 +277,29 @@ export class CustomerHeadernavbarService {
 
             this.shopMenuMain.push(arrayLabelAndIconMenu);
         }
-        console.log ('shopMenuMain');
-        //console.log (this.shopMenuMain);
-        this.getProductsMenu('Desserts');
+        // console.log ('shopMenuMain');
+        // console.log (this.shopMenuMain);
+        // this.getProductsMenu('Desserts');
         return this.shopMenuMain;
     }
-    getProductsMenu( strOption: string ): [] {
+    getProductsMenu(  ): [] {
+
         // tslint:disable-next-line: prefer-for-of
         for (let i = 0; i < this.shopMenuMain.length; i++){
-            if (strOption === this.shopMenuMain[i].title){
-                console.log (this.shopMenuMain[i]['productsList']);
+            if (this.currentProductList === this.shopMenuMain[i].title){
+                // console.log (this.shopMenuMain[i]['productsList']);
                 return this.shopMenuMain[i]['productsList'];
             }
         }
 
+    }
+    setProduclistTo( strOption: string ){
+        // console.log('setProduclistTo() optionSelected: ' + strOption);
+        this.currentProductList = strOption;
+    }
+
+    getCurrentProductList( ) {
+        return this.currentProductList;
     }
 
 }

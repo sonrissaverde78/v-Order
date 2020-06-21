@@ -2,84 +2,42 @@
 <!-- Topbar header - style you can find in pages.scss -->
 <!-- ============================================================== -->
 <header class="topbar">
-    <nav class="navbar top-navbar navbar-expand-md navbar-light">
-        <!-- ============================================================== -->
-        <!-- Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-header">
-            <!-- <a class="navbar-brand" href="index.html">  *ngFor="let submenu of menu.submenu" -->
-            <a class="navbar-brand dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <div class="dropdown-menu animated bounceInDown">
+    <!--Navbar  <nav class="navbar navbar-expand-lg navbar-dark indigo overlay z-depth-1-half">-->
 
-                    <a *ngFor="let menu of menuMain" class="dropdown-item mb-0" href="#">
+
+    <!-- Additional container -->
+    <div class="container-sm ">
+
+
+        <nav class="navbar fixed-top navbar-expand-xm navbar-dark font-small indigo overlay z-depth-1-half ">
+
+            <!-- Navbar brand -->
+            <!-- <a class="navbar-brand dropdown-toggle  font-small" type="button" data-toggle="collapse" data-target="#basicExampleNav" href="#" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">{{shopName}}</a> -->
+
+            <div class="dropdown">
+                <a class="navbar-brand dropdown-toggle font-small" type="button" data-toggle="dropdown" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation" style="color: floralwhite;"> {{shopName}} </a>
+                <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{shopName}}
+                </button> -->
+                <!-- <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> -->
+                <div class="dropdown-menu " id="basicExampleNav">
+                    <a (click)="optionSelected(menu.title)" *ngFor="let menu of menuMain" class="dropdown-item mb-0" href="#">
                         <div class="row">
                             <div class="col-3">
-                                <svg class="flaticon" style="margin-top: 10px;">
-                                    <use [attr.xlink:href]="menu.icono"></use>
-                                 </svg>
+                                <svg class="flaticon" style="margin-bottom: 0px;">
+                                        <use [attr.xlink:href]="menu.icono"></use>
+                                     </svg>
                             </div>
                             <div class="col-9">
-                                <p class="pl-1 font-bold">{{ menu.title }}</p>
+                                <p class="pl-1 font-bold pt-1" style="opacity: 1.0;">{{ menu.title }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
+            </div>
 
-                <!-- Logo icon -->
-                <b>
-                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                            <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="" class="dark-logo" />
-                            <!-- Light Logo icon -->
-                            <img src="../assets/images/logo-light-icon.png" alt="" class="light-logo" />
-                            
-                                <!-- dark Logo text alt="{{ shopName }}" -->
-                                <img src="../assets/images/logo-text.png-" alt="{{ shopName }}" class="dark-logo" />
-                                <!-- Light Logo text -->    
-                                <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                                
-                            
-                </b>
 
-                <!--End Logo icon -->
-                <!-- Logo text -->
-                <!--
-                <span>
-                     dark Logo text alt="{{ shopName }}" 
-                    <img src="../assets/images/logo-text.png"  class="dark-logo" />
-                    -->
-                <!-- Light Logo text  
-                    <img src="../assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                    
-                </span> {{ shopName }} -->
-            </a>
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Logo -->
-        <!-- ============================================================== -->
-        <div class="navbar-collapse">
-            <!-- ============================================================== -->
-            <!-- toggle and nav items -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav mr-auto">
-                <!-- This is  
-                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
-                <li class="nav-item hidden-sm-down"></li>
-                -->
-            </ul>
-            <!-- ============================================================== -->
-            <!-- User profile and search -->
-            <!-- ============================================================== -->
-            <ul class="navbar-nav my-sm-0">
-                <!-- ============================================================== -->
-                <!-- Search -->
-                <!-- ============================================================== 
-                <li class="nav-item hidden-xs-down search-box"> <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                    <form class="app-search">
-                        <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i class="ti-close"></i></a> </form>
-                </li>
-                -->
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
                 <!-- ============================================================== -->
                 <!-- Profile -->
                 <!-- ============================================================== -->
@@ -176,13 +134,12 @@
                         </ul>
                     </div>
                 </li>
-                <!-- ============================================================== -->
-                <!-- End Messages -->
-                <!-- ============================================================== -->
-
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </div>
+    <!-- Additional container -->
+
+    <!--/.Navbar-->
 </header>
 <!-- ============================================================== -->
 <!-- End Topbar header -->

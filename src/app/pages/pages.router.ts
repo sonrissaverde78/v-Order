@@ -13,9 +13,10 @@ const pagesRoutes: Routes = [
         path: '',
         component: PagesComponent,
         children: [
-            { path: 'dashboard', component: DashboardComponent },
+            { path: 'dashboard', component: ProductsComponent }, //DashboardComponent },
             { path: 'about', component: AboutComponent },
-            { path: 'prods', component: ProductsComponent },
+            { path: 'prodsA', component: ProductsComponent },
+            { path: 'prodsB', component: ProductsComponent },
             { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
         ]
     }

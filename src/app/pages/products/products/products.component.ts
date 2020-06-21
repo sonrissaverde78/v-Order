@@ -10,11 +10,19 @@ import { CustomerHeadernavbarService } from '../../../services/shared/customer-h
 export class ProductsComponent implements OnInit {
 
   productList  = [];
+  productListName: string = 'initMePlease';
   constructor(public mainMenuService: CustomerHeadernavbarService) {
-    this.productList  = this.mainMenuService.getProductsMenu ('Desserts');
+    if (this.mainMenuService.getCurrentProductList() === 'initPlease'){
+      this.mainMenuService.setProduclistTo('Desserts');
+      this.productListName = 'Sugerncias';
+      this.productList  = this.mainMenuService.getProductsMenu ();
+    } else {
+      this.productListName = this.mainMenuService.getCurrentProductList();
+      this.productList  = this.mainMenuService.getProductsMenu ();
+    }
    }
 
-  
+
 
   ngOnInit(): void {
 
