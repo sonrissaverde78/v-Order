@@ -12,7 +12,7 @@ import { PAGES_ROUTES } from './pages.router';
 import { ProductsComponent } from './products/products/products.component';
 import { ProductCardComponent } from '../components/product-card/product-card.component';
 import { IntroComponent } from '../components/intro/intro.component';
-
+import { ProductlistComponent } from '../components/productlist/productlist.component';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -20,7 +20,8 @@ import { IntroComponent } from '../components/intro/intro.component';
     DashboardComponent,
     ProductsComponent,
     ProductCardComponent,
-    IntroComponent
+    IntroComponent,
+    ProductlistComponent
   ],
   exports: [
     AboutComponent,

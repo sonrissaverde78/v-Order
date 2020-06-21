@@ -17,7 +17,7 @@ const pagesRoutes: Routes = [
             { path: 'about', component: AboutComponent },
             { path: 'prodsA', component: ProductsComponent },
             { path: 'prodsB', component: ProductsComponent },
-            { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+            { path: '', redirectTo: '/prodsA', pathMatch: 'full'},
         ]
     }
 ];
